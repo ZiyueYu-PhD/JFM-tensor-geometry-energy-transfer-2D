@@ -38,7 +38,7 @@ demo_energy_flux.m       Runnable example (energy flux vs L, PDF of theta)
 1_experiment_records/    Lab logs (xlsx) for the two experiment days
 2_data/                  Velocity fields, 8 configurations, 21 frames each
 3_photos/rawdata/        Raw camera frames, one per velocity frame (PNG)
-3_photos/processed/      Rendered flow fields (speed + arrows), one per velocity frame
+3_photos/processed/      Same frames after PTV pre-processing (background & rods removed)
 4_functions/             The three MATLAB routines used by the demo
 5_figures/               Figures of the published paper (main text + SI)
 ```
@@ -83,7 +83,7 @@ Variables in each `.mat` (MATLAB v7, loadable with `scipy.io.loadmat`):
 
 `pvx(:,:,k)` is the velocity field at camera frame `frames(k)` and corresponds
 to `3_photos/rawdata/<config>/<set>/Image<frames(k)>.png` and
-`3_photos/processed/<config>/<set>/Flow<frames(k)>.png`.
+`3_photos/processed/<config>/<set>/Image<frames(k)>.png`.
 
 **Reynolds number.** The flow is dominated by bottom friction rather than
 viscosity, so the paper uses the friction-based Reynolds number
@@ -115,8 +115,13 @@ tif to PNG. For each of the 8 configurations: `Image0101.png … Image0301.png`
 (every 10th frame, one-to-one with the velocity frames in `2_data/`) plus the
 `background.png` reference image used for background subtraction.
 
-`processed/<config>/<set>/Flow0101.png … Flow0301.png`: rendered views of the corresponding velocity frames (speed map with velocity
-arrows, 0–20 cm), generated from `2_data/` for quick visual inspection.
+`processed/`: the same frames after the PTV pre-processing step, i.e. the
+images actually handed to the particle tracker. The background image is
+subtracted and the rod array (with its shadows) is masked by replacing every
+connected bright region larger than 100 px with the background. Each folder
+also holds the `background.png` of the pre-processed sequence. Processing
+parameters follow the original pipeline (binarisation threshold 0.01, minimum
+object area 100 px).
 
 ## 4. Functions (`4_functions/`)
 
