@@ -29,7 +29,7 @@ demo_energy_flux
 
 `demo_energy_flux.m` loads one set, computes the filter-space total energy flux
 `Π(L)` for `L = 1…12 cm`, and plots the PDF of the stress–strain alignment
-angle `θ` at `L = 7 cm`. Change the `file` variable to any file in `2_data/`.
+angle `θ^(L)` at `L = 7 cm`. Change the `file` variable to any file in `2_data/`.
 
 ## Repository layout
 
@@ -129,7 +129,7 @@ object area 100 px).
 | File | Purpose |
 |---|---|
 | `fst_geo_efficiency_2D.m` | Filter-space total energy flux `Π(L) = −τ_ij S̄_ij` on a 2-D velocity field for cut-off length `R` (cm). Optional outputs return the Leonard / cross / sub-grid contributions separately. |
-| `Cal_eigvector_eigvalue_strainandstress.m` | Eigenvalues and eigenvector angle of the filtered rate-of-strain tensor (`type = 1`) or of the sub-grid stress tensor (`type = 0`); the difference of the two angles is the alignment angle θ. |
+| `Cal_eigvector_eigvalue_strainandstress.m` | Eigenvalues and eigenvector angle of the filtered rate-of-strain tensor (`type = 1`) or of the sub-grid stress tensor (`type = 0`); the difference of the two angles is the alignment angle θ^(L) of the paper. |
 | `sharpfilt2.m` | Sharp spectral low-pass filter with Gaussian conditioning of the cut-off (X. Si); the filter kernel used by both routines. |
 
 Usage pattern (see `demo_energy_flux.m`):
