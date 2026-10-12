@@ -16,7 +16,8 @@ matching raw camera frames, and the routines that compute the energy flux and
 the stress–strain alignment angle. It is meant to let a reader run the method
 end-to-end, not to reproduce every figure. Full-length records (1501 / 1200
 frames per set, 40+ sets per experiment day) and complete raw image sequences
-are kept offline by the authors and are available on request.
+are kept offline by the authors and are not part of this release. Researchers
+interested in collaborating on this data are welcome to contact the authors.
 
 ---
 
