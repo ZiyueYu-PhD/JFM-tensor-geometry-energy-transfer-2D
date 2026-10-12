@@ -41,6 +41,7 @@ demo_energy_flux.m       Runnable example (energy flux vs L, PDF of theta)
 3_photos/processed/      Same frames after PTV pre-processing (background & rods removed)
 4_functions/             The three MATLAB routines used by the demo
 5_figures/               Figures of the published paper (main text + SI)
+6_videos/                Particle-trajectory movies of the flow configurations (mp4)
 ```
 
 ## 1. Experiment records
@@ -146,6 +147,25 @@ Pi_L = mean(Q, 'all');
 - `SI/` — the 13 Supplementary Material figures (setup details, perturbation
   field, α statistics, flux history, 3-D checks, scale locality,
   linear-superposition controls Π(L), filter / resolution / domain robustness).
+
+## 6. Videos (`6_videos/`)
+
+Particle-trajectory movies (particle streaks over a few frames, 20 fps
+playback, 3.7–4.8 s) of the main flow configurations, made from the same
+records as `2_data/`. Files ending in `_R` are a rotated and cropped close-up
+of the rod-array region (1200 × 1200 px); the others show the full field of
+view (1500 × 1500 px).
+
+| File | Configuration | Set |
+|---|---|---|
+| `Set_8_cellular.mp4` | Cellular background flow, no rod array | 250328 set8 |
+| `Set_21_cellular_perb.mp4` | Cellular, pure perturbation (rod array only) | 250328 set21 |
+| `Set_27_cellular_back_perb.mp4` | Cellular, inverse (θ ≈ 0) | 250328 set27 |
+| `Set_32_cellular_for_perb.mp4` | Cellular, forward (θ ≈ π/2) | 250328 set32 |
+| `Set_13_shear.mp4`, `Set_13_shear_R.mp4` | Shear background flow, no rod array | 250530 set13 |
+| `Set_24_shear_perb.mp4`, `Set_24_shear_perb_R.mp4` | Shear, pure perturbation (rod array only) | 250530 set24 |
+| `Set_30_shear_back_perb.mp4`, `Set_30_shear_back_perb_R.mp4` | Shear, inverse | 250530 set30 |
+| `Set_39_shear_for_perb.mp4`, `Set_39_shear_for_perb_R.mp4` | Shear, forward | 250530 set39 |
 
 ---
 
