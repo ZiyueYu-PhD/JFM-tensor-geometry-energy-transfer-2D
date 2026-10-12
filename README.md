@@ -1,4 +1,4 @@
-# Low-Re Turbulence — Data & Code (demo archive)
+# Tensor-Geometry-Activated Spectral Energy Transfer in 2-D Flows — Data & Code
 
 Companion data and code for the paper:
 
