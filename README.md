@@ -30,11 +30,14 @@ demo_energy_flux
 `demo_energy_flux.m` loads one set, computes the filter-space total energy flux
 `Π(L)` for `L = 1…12 cm`, and plots the PDF of the stress–strain alignment
 angle `θ^(L)` at `L = 7 cm`. Change the `file` variable to any file in `2_data/`.
+The formulas behind each step, and the code lines that implement them, are
+listed in `Formula.md`.
 
 ## Repository layout
 
 ```
 demo_energy_flux.m       Runnable example (energy flux vs L, PDF of theta)
+Formula.md               Every formula of the analysis and where it is implemented
 1_experiment_records/    Lab logs (xlsx) for the two experiment days
 2_data/                  Velocity fields, 8 configurations, 21 frames each
 3_photos/rawdata/        Raw camera frames, one per velocity frame (PNG)
