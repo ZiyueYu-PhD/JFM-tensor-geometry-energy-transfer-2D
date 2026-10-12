@@ -28,16 +28,25 @@ interested in collaborating on this data are welcome to contact the authors.
 demo_energy_flux
 ```
 
-`demo_energy_flux.m` loads one set, computes the filter-space total energy flux
-`Π(L)` for `L = 1…12 cm`, and plots the PDF of the stress–strain alignment
-angle `θ^(L)` at `L = 7 cm`. Change the `file` variable to any file in `2_data/`.
-The formulas behind each step, and the code lines that implement them, are
-listed in `Formula.md`.
+`demo_energy_flux.m` loads the four sets of one experiment day (cellular by
+default; set `cfg = 'shear'` for the other) and produces
+
+1. the filter-space total energy flux `Π(L)` for `L = 1…12 cm`, one curve per
+   configuration (pure perturbation, inverse, forward, neutral);
+2. the PDF of the stress–strain alignment angle `θ^(L)` at `L = 7 cm`, one
+   curve per configuration;
+3. for inverse, forward and neutral, one frame of the underlying fields: the
+   local flux `Π^(L)(x,y)`, the largest eigenvalue and extensional eigenvector
+   of the filtered rate of strain, and the largest eigenvalue and eigenvector
+   of the sub-grid stress (eigenvectors drawn as bars, every 6th grid point).
+
+It runs in under a minute. The formulas behind each step, and the code lines
+that implement them, are listed in `Formula.md`.
 
 ## Repository layout
 
 ```
-demo_energy_flux.m       Runnable example (energy flux vs L, PDF of theta)
+demo_energy_flux.m       Runnable example (flux vs L, PDF of theta, flux / strain / stress fields)
 Formula.md               Every formula of the analysis and where it is implemented
 1_experiment_records/    Lab logs (xlsx) for the two experiment days
 2_data/                  Velocity fields, 8 configurations, 21 frames each
