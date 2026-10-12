@@ -129,11 +129,11 @@ Spatial and temporal average used in the figures:
 $$\overline{\langle\Pi^{(L)}\rangle} = \frac{1}{N_t}\sum_t \frac{1}{\lvert A\rvert}\sum_{\mathbf x\in A}\Pi^{(L)}(\mathbf x,t),$$
 
 with $A$ the analysis subdomain (dashed box in the figures) and $t$ running
-over the frames of the record. `demo_energy_flux.m` lines 70–81 do the same
-with the 21 archived frames, for each configuration; the subdomain mask is
-built in `subdomain_mask` (line 168) from the four corners listed at line 45,
-exactly as the original `p_position_everyshape` (`inpolygon` on a
-`meshgrid` of `px(1,:)`).
+over the frames of the record. `demo_energy_flux.m` lines 72–83 do the same
+with the 21 archived frames, for each configuration. The paper's subdomain is
+a quadrilateral per set (`inpolygon` mask in the original script); the demo
+replaces each by an axis-aligned rectangle of the same centre and area
+(`box`, line 46; mask built in `subdomain_mask`, line 170).
 
 The original pipeline evaluated `fst_geo_efficiency_2D` in pixel units and
 converted afterwards: $\Pi[\mathrm{cm^2 s^{-3}}] = \Pi[\mathrm{px^2\,frame^{-3}}]\times 60^3/80^2$.
@@ -173,7 +173,7 @@ Implementation, `Cal_eigvector_eigvalue_strainandstress.m`
 | extensional eigenvector $(\hat e_x,\hat e_y)$, sign fixed so $\hat e_x\ge0$ | 64–67 |
 | eigenvector angle (deg) | 71 `eigvec_angle(k,l) = atand(eigvec_y/eigvec_x)` |
 
-Alignment angle and efficiency, `demo_energy_flux.m` lines 100–102 (same as the
+Alignment angle and efficiency, `demo_energy_flux.m` lines 102–104 (same as the
 original `d_Main_analysis_global.m`):
 
 ```matlab
@@ -217,8 +217,8 @@ Re_alpha = u_rms/(L_i*alpha);
 Re_nu    = u_rms*L_i/nu;
 ```
 
-In the original pipeline the subdomain is the same polygon mask as in the demo
-(`inpolygon` on the four corners stored per set) and frames whose $\langle\lvert\mathbf u\rvert^2\rangle$
+In the original pipeline the subdomain is a polygon mask (`inpolygon` on the
+four corners stored per set; the demo uses equivalent rectangles) and frames whose $\langle\lvert\mathbf u\rvert^2\rangle$
 exceeds 3× the record mean (tracking glitches) are replaced by the mean before
 averaging.
 
@@ -256,7 +256,7 @@ $$\varepsilon_\alpha = \alpha\,\langle u_x^2+u_y^2\rangle$$
 | $\alpha$ | 0.12 s$^{-1}$ (cellular), 0.055 s$^{-1}$ (shear) | §6, §7 |
 | $\nu$ | 0.0125 cm$^2$/s | §6 |
 | filter conditioning $\sigma$ | 0.5 | `fst_geo_efficiency_2D(...,R,0.5)`, `Cal_eigvector...` line 7 |
-| analysis scale | $L = 7$ cm ($0.7\,W$, $W = 10$ cm) | `demo_energy_flux.m` line 34 |
-| flux scan | $L = 1,\dots,12$ cm | `demo_energy_flux.m` line 33 |
+| analysis scale | $L = 7$ cm ($0.7\,W$, $W = 10$ cm) | `demo_energy_flux.m` line 35 |
+| flux scan | $L = 1,\dots,12$ cm | `demo_energy_flux.m` line 34 |
 | image pre-processing | threshold 0.01, min. area 100 px | §1 |
 | PTV outlier cut | speed > 10 × IQR | §1 |
