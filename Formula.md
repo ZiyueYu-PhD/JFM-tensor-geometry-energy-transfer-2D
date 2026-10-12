@@ -164,9 +164,9 @@ Implementation, `Cal_eigvector_eigvalue_strainandstress.m`
 | $\partial_j u_i^{(L)}$ | 18–19 `[U2x,U2y] = gradient(pvx,…)`, `[V2x,V2y] = gradient(pvy,…)` |
 | $\tau_{S,ij}$ | 27–30 `subt11=sharpfilt2((pvxs-pvx).^2,…)`, … |
 | $s_{ij}$ matrix (`type=1`) | 36–37 `strain=[U2x, 0.5*(U2y+V2x); 0.5*(U2y+V2x), V2y]` |
-| $\tau_{S,ij}$ matrix (`type=0`) | 48–50 `stress=[subt11,subt12; subt21,subt22]` |
+| $\tau_{S,ij}$ matrix (`type=0`) | 47–48 `stress=[subt11,subt12; subt21,subt22]` |
 | eigen-decomposition | 52 `[V,D] = eig(strain)` |
-| extensional eigenvalue ($\sigma$, or $\lambda_{\max}(\tau_S)$) | 55 `eig_val(k,l) = max(diag(D))` |
+| extensional eigenvalue ($\sigma$, or $\lambda_{\max}(\tau_S)$) | 54 `eig_val(k,l) = max(diag(D))` |
 | extensional eigenvector $(\hat e_x,\hat e_y)$, sign fixed so $\hat e_x\ge0$ | 64–67 |
 | eigenvector angle (deg) | 71 `eigvec_angle(k,l) = atand(eigvec_y/eigvec_x)` |
 
