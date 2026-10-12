@@ -40,7 +40,12 @@ default; set `cfg = 'shear'` for the other) and produces
    of the filtered rate of strain, and the largest eigenvalue and eigenvector
    of the sub-grid stress (eigenvectors drawn as bars, every 6th grid point).
 
-It runs in under a minute. The formulas behind each step, and the code lines
+As in the paper, the filter acts on the full 20 cm × 20 cm field while all
+averages and statistics (1, 2) are taken over the **analysis subdomain**, the
+quadrilateral that stays inside the zone swept by the rod array (dashed box in
+the figures). Its corner coordinates for each set are listed in the script and
+are those of the original analysis. The field plots (3) show the full field
+with the subdomain outlined. It runs in under a minute. The formulas behind each step, and the code lines
 that implement them, are listed in `Formula.md`.
 
 ## Repository layout
